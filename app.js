@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const path = require("path");
@@ -42,9 +43,14 @@ app.use((error, req, res, next) => {
   res.status(error.code || 500);
   res.json({ message: error.message || "Unknown error occured" });
 });
+
+const db_user = process.env.MONGODB_USER;
+
+const uri = `mongodb+srv://${db_user}:uu79KGKoajrnayB1@cluster0.uauxnjj.mongodb.net/`
+
 mongoose
   .connect(
-    "mongodb+srv://praveen:uu79KGKoajrnayB1@cluster0.uauxnjj.mongodb.net/"
+uri
   )
   .then(() => {
     // console.log("connected")
