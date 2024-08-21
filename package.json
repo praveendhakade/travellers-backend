@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": " cross-env NODE_ENV=.env.dev  nodemon app.js"
   },
   "author": "Praveen Dhakade",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "axios": "^1.3.4",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "express-validator": "^6.15.0",

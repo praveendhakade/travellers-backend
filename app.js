@@ -1,5 +1,6 @@
 const express = require("express");
-require("dotenv").config();
+// process.env.NODE_ENV = '.env.dev'
+require("dotenv").config({path: process.env.NODE_ENV});
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const path = require("path");
@@ -47,7 +48,6 @@ app.use((error, req, res, next) => {
 const db_user = process.env.MONGODB_USER;
 
 const uri = `mongodb+srv://${db_user}:uu79KGKoajrnayB1@cluster0.uauxnjj.mongodb.net/`
-
 mongoose
   .connect(
 uri
